@@ -1,0 +1,57 @@
+2026-11-21 14:49:02 | INFO     | ===== Sistema Software FJ iniciado =====
+2026-11-21 14:49:02 | INFO     | Cliente registrado: Cliente #1: Laura Gómez (doc ******6789, laura.gomez@mail.com)
+2026-11-21 14:49:02 | INFO     | Operación 01 finalizada
+2026-11-21 14:49:02 | INFO     | Cliente registrado: Cliente #2: Carlos Ruiz (doc ****3456, cruiz@empresa.co)
+2026-11-21 14:49:02 | INFO     | Operación 02 finalizada
+2026-11-21 14:49:02 | ERROR    | Operación 03 (Registrar cliente con correo inválido) -> ValidacionError: [SFJ-100] Campo 'correo': 'ana.torres@' no tiene formato válido
+2026-11-21 14:49:02 | INFO     | Operación 03 finalizada
+2026-11-21 14:49:02 | ERROR    | Operación 04 (Registrar cliente sin nombre (parámetro faltante)) -> ParametroFaltanteError: [SFJ-101] Campo 'nombre': es obligatorio y no fue suministrado
+2026-11-21 14:49:02 | INFO     | Operación 04 finalizada
+2026-11-21 14:49:02 | ERROR    | Operación 05 (Registrar cliente con documento duplicado) -> ClienteDuplicadoError: [SFJ-201] Ya existe un cliente con documento 80123456
+2026-11-21 14:49:02 | INFO     | Operación 05 finalizada
+2026-11-21 14:49:02 | INFO     | Servicio creado: Sala 'Sala Ejecutiva' para 12 personas - $50,000/hora
+2026-11-21 14:49:02 | INFO     | Operación 06 finalizada
+2026-11-21 14:49:02 | INFO     | Servicio creado: Alquiler 'Portátiles' (Laptop Core i7 x5) - $35,000/día por unidad
+2026-11-21 14:49:02 | INFO     | Operación 07 finalizada
+2026-11-21 14:49:02 | INFO     | Servicio creado: Asesoría 'Ciberseguridad' en Seguridad informática (nivel senior) - $120,000/hora base
+2026-11-21 14:49:02 | INFO     | Operación 08 finalizada
+2026-11-21 14:49:02 | ERROR    | Operación 09 (Crear servicio con tarifa no numérica (encadenamiento)) -> ValidacionError: [SFJ-100] Campo 'tarifa': 'cincuenta mil' no es un número | Causa original: ValueError: could not convert string to float: 'cincuenta mil'
+2026-11-21 14:49:02 | INFO     | Operación 09 finalizada
+2026-11-21 14:49:02 | ERROR    | Operación 10 (Crear asesoría con nivel inexistente) -> ValidacionError: [SFJ-100] Campo 'nivel': debe ser uno de ['junior', 'senior', 'experto']
+2026-11-21 14:49:02 | INFO     | Operación 10 finalizada
+2026-11-21 14:49:02 | INFO     | Reserva creada: Reserva #1 [PENDIENTE] - Laura Gómez | Sala Ejecutiva x 4 hora(s) | Total: sin calcular
+2026-11-21 14:49:02 | INFO     | Reserva #1 CONFIRMADA - total $238,000.00
+2026-11-21 14:49:02 | INFO     | Inicio de procesamiento de la reserva #1
+2026-11-21 14:49:02 | INFO     | Reserva #1 PROCESADA correctamente
+2026-11-21 14:49:02 | INFO     | Fin de procesamiento de la reserva #1 (estado: PROCESADA)
+2026-11-21 14:49:02 | INFO     | Operación 11 finalizada
+2026-11-21 14:49:02 | INFO     | Reserva creada: Reserva #2 [PENDIENTE] - Carlos Ruiz | Portátiles x 7 día(s) | Total: sin calcular
+2026-11-21 14:49:02 | INFO     | Reserva #2 CONFIRMADA - total $1,246,376.25
+2026-11-21 14:49:02 | INFO     | Inicio de procesamiento de la reserva #2
+2026-11-21 14:49:02 | INFO     | Reserva #2 PROCESADA correctamente
+2026-11-21 14:49:02 | INFO     | Fin de procesamiento de la reserva #2 (estado: PROCESADA)
+2026-11-21 14:49:02 | INFO     | Operación 12 finalizada
+2026-11-21 14:49:02 | ERROR    | Operación 13 (Reserva con duración excesiva (sala por 20 h)) -> ValidacionError: [SFJ-100] Campo 'duracion': máximo 12 hora(s) para Sala Ejecutiva
+2026-11-21 14:49:02 | INFO     | Operación 13 finalizada
+2026-11-21 14:49:02 | ERROR    | Operación 14 (Reserva para cliente inexistente) -> ClienteNoEncontradoError: [SFJ-202] No existe un cliente con documento 99999999
+2026-11-21 14:49:02 | INFO     | Operación 14 finalizada
+2026-11-21 14:49:02 | ERROR    | Operación 15 (Reserva sobre servicio temporalmente no disponible) -> ServicioNoDisponibleError: [SFJ-301] El servicio 'Ciberseguridad' no está disponible
+2026-11-21 14:49:02 | INFO     | Operación 15 finalizada
+2026-11-21 14:49:02 | INFO     | Reserva creada: Reserva #5 [PENDIENTE] - Carlos Ruiz | Ciberseguridad x 3 hora(s) | Total: sin calcular
+2026-11-21 14:49:02 | INFO     | Reserva #5 CANCELADA - motivo: El cliente reprogramó
+2026-11-21 14:49:02 | INFO     | Inicio de procesamiento de la reserva #5
+2026-11-21 14:49:02 | ERROR    | Procesando reserva #5 -> OperacionNoPermitidaError: [SFJ-401] No se puede 'procesar' una reserva en estado 'CANCELADA'
+2026-11-21 14:49:02 | INFO     | Fin de procesamiento de la reserva #5 (estado: CANCELADA)
+2026-11-21 14:49:02 | ERROR    | Operación 16 (Cancelar reserva y luego intentar procesarla) -> OperacionNoPermitidaError: [SFJ-401] No se puede 'procesar' una reserva en estado 'CANCELADA'
+2026-11-21 14:49:02 | INFO     | Operación 16 finalizada
+2026-11-21 14:49:02 | INFO     | Reserva creada: Reserva #6 [PENDIENTE] - Laura Gómez | Ciberseguridad x 2 hora(s) | Total: sin calcular
+2026-11-21 14:49:02 | ERROR    | Operación 17 (Confirmar reserva con descuento inválido (150 %)) -> ReservaError: [SFJ-400] No se pudo confirmar la reserva #6 | Causa original: ValidacionError: [SFJ-100] Campo 'descuento': debe estar entre 0 y 0.99
+2026-11-21 14:49:02 | INFO     | Operación 17 finalizada
+2026-11-21 14:49:02 | INFO     | Reserva creada: Reserva #7 [PENDIENTE] - Laura Gómez | Ciberseguridad x 2 hora(s) | Total: sin calcular
+2026-11-21 14:49:02 | INFO     | Reserva #7 CONFIRMADA - total $428,400.00
+2026-11-21 14:49:02 | ERROR    | Operación 18 (Confirmar dos veces la misma reserva) -> OperacionNoPermitidaError: [SFJ-401] No se puede 'confirmar' una reserva en estado 'CONFIRMADA'
+2026-11-21 14:49:02 | INFO     | Operación 18 finalizada
+2026-11-21 14:49:02 | INFO     | Operación 19 finalizada
+2026-11-21 14:49:02 | ERROR    | Operación 20 (Cotizar con un tipo no soportado (texto)) -> ValidacionError: [SFJ-100] Campo 'cotizar': tipo no soportado: str
+2026-11-21 14:49:02 | INFO     | Operación 20 finalizada
+2026-11-21 14:49:02 | INFO     | ===== Sistema Software FJ finalizado correctamente =====

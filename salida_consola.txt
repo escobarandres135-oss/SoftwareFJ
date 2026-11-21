@@ -1,0 +1,89 @@
+========================================================================
+  SOFTWARE FJ - Sistema de Gestión de Clientes, Servicios y Reservas
+  Autor: Andres Felipe Escobar Yusunguaira - Ing. de Sistemas UNAD
+========================================================================
+
+[01] Registrar cliente válido (Laura Gómez)
+     ✓ OK -> Cliente #1: Laura Gómez (doc ******6789, laura.gomez@mail.com)
+
+[02] Registrar cliente válido (Carlos Ruiz)
+     ✓ OK -> Cliente #2: Carlos Ruiz (doc ****3456, cruiz@empresa.co)
+
+[03] Registrar cliente con correo inválido
+     ✗ ERROR CONTROLADO -> [SFJ-100] Campo 'correo': 'ana.torres@' no tiene formato válido
+
+[04] Registrar cliente sin nombre (parámetro faltante)
+     ✗ ERROR CONTROLADO -> [SFJ-101] Campo 'nombre': es obligatorio y no fue suministrado
+
+[05] Registrar cliente con documento duplicado
+     ✗ ERROR CONTROLADO -> [SFJ-201] Ya existe un cliente con documento 80123456
+
+[06] Crear servicio: Sala de juntas
+     ✓ OK -> Sala 'Sala Ejecutiva' para 12 personas - $50,000/hora
+
+[07] Crear servicio: Alquiler de portátiles
+     ✓ OK -> Alquiler 'Portátiles' (Laptop Core i7 x5) - $35,000/día por unidad
+
+[08] Crear servicio: Asesoría en ciberseguridad
+     ✓ OK -> Asesoría 'Ciberseguridad' en Seguridad informática (nivel senior) - $120,000/hora base
+
+[09] Crear servicio con tarifa no numérica (encadenamiento)
+     ✗ ERROR CONTROLADO -> [SFJ-100] Campo 'tarifa': 'cincuenta mil' no es un número
+       Causa original: ValueError: could not convert string to float: 'cincuenta mil'
+
+[10] Crear asesoría con nivel inexistente
+     ✗ ERROR CONTROLADO -> [SFJ-100] Campo 'nivel': debe ser uno de ['junior', 'senior', 'experto']
+
+[11] Reserva completa: crear, confirmar y procesar sala (4 h)
+     ✓ OK -> Reserva #1 [PROCESADA] - Laura Gómez | Sala Ejecutiva x 4 hora(s) | Total: $238,000.00
+
+[12] Reserva de portátiles por 7 días con 10 % de descuento
+     ✓ OK -> Reserva #2 [PROCESADA] - Carlos Ruiz | Portátiles x 7 día(s) | Total: $1,246,376.25
+
+[13] Reserva con duración excesiva (sala por 20 h)
+     ✗ ERROR CONTROLADO -> [SFJ-100] Campo 'duracion': máximo 12 hora(s) para Sala Ejecutiva
+
+[14] Reserva para cliente inexistente
+     ✗ ERROR CONTROLADO -> [SFJ-202] No existe un cliente con documento 99999999
+
+[15] Reserva sobre servicio temporalmente no disponible
+     ✗ ERROR CONTROLADO -> [SFJ-301] El servicio 'Ciberseguridad' no está disponible
+
+[16] Cancelar reserva y luego intentar procesarla
+     ✗ ERROR CONTROLADO -> [SFJ-401] No se puede 'procesar' una reserva en estado 'CANCELADA'
+
+[17] Confirmar reserva con descuento inválido (150 %)
+     ✗ ERROR CONTROLADO -> [SFJ-400] No se pudo confirmar la reserva #6
+       Causa original: ValidacionError: [SFJ-100] Campo 'descuento': debe estar entre 0 y 0.99
+
+[18] Confirmar dos veces la misma reserva
+     ✗ ERROR CONTROLADO -> [SFJ-401] No se puede 'confirmar' una reserva en estado 'CONFIRMADA'
+
+[19] Métodos sobrecargados de cálculo de costos
+     ✓ OK -> base=$360,000 | con IVA=$428,400 | IVA+desc 10%=$385,560 | cotizar(2)=$428,400 | cotizar(dict)=$342,720
+
+[20] Cotizar con un tipo no soportado (texto)
+     ✗ ERROR CONTROLADO -> [SFJ-100] Campo 'cotizar': tipo no soportado: str
+
+========================================================================
+  RESUMEN
+========================================================================
+  Operaciones exitosas: 8
+  Operaciones con error controlado: 12
+  Clientes registrados: 2
+    - Cliente #1: Laura Gómez (doc ******6789, laura.gomez@mail.com)
+    - Cliente #2: Carlos Ruiz (doc ****3456, cruiz@empresa.co)
+  Servicios activos: 3
+    - Sala 'Sala Ejecutiva' para 12 personas - $50,000/hora
+    - Alquiler 'Portátiles' (Laptop Core i7 x5) - $35,000/día por unidad
+    - Asesoría 'Ciberseguridad' en Seguridad informática (nivel senior) - $120,000/hora base
+  Reservas: 5
+    - Reserva #1 [PROCESADA] - Laura Gómez | Sala Ejecutiva x 4 hora(s) | Total: $238,000.00
+    - Reserva #2 [PROCESADA] - Carlos Ruiz | Portátiles x 7 día(s) | Total: $1,246,376.25
+    - Reserva #5 [CANCELADA] - Carlos Ruiz | Ciberseguridad x 3 hora(s) | Total: sin calcular
+    - Reserva #6 [PENDIENTE] - Laura Gómez | Ciberseguridad x 2 hora(s) | Total: sin calcular
+    - Reserva #7 [CONFIRMADA] - Laura Gómez | Ciberseguridad x 2 hora(s) | Total: $428,400.00
+  Total facturado (reservas procesadas): $1,484,376.25
+
+  Log de eventos y errores: /home/claude/SoftwareFJ/logs/software_fj.log
+  El sistema finalizó sin interrupciones.
